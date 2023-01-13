@@ -24,7 +24,7 @@ namespace WindowsFormShapes
         {
             while(true)
             { 
-                this.CreateGraphics().DrawRectangle(new Pen(Brushes.Green, 5), new Rectangle(randomGenerator.Next(0, this.Width), randomGenerator.Next(0, this.Height), 60, 30));
+                this.CreateGraphics().DrawRectangle(new Pen(Brushes.Green, 5), new Rectangle(randomGenerator.Next(0, this.Width), randomGenerator.Next(0, this.Height), randomGenerator.Next(55, 100), randomGenerator.Next(10, 50)));
                 Thread.Sleep(3000);
             }
         }
@@ -58,7 +58,8 @@ namespace WindowsFormShapes
         {
             while(true)
             {
-                this.CreateGraphics().DrawEllipse(new Pen(Brushes.Blue, 3), new Rectangle(randomGenerator.Next(0, this.Width), randomGenerator.Next(0, this.Height), 100, 100));
+                int circleSize = randomGenerator.Next(50, 250);
+                this.CreateGraphics().DrawEllipse(new Pen(Brushes.Blue, 3), new Rectangle(randomGenerator.Next(0, this.Width), randomGenerator.Next(0, this.Height), circleSize, circleSize));
                 Thread.Sleep(4000);
             }
         }
