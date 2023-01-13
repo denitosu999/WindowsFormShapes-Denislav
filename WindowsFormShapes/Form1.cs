@@ -2,9 +2,27 @@ namespace WindowsFormShapes
 {
     public partial class Form1 : Form
     {
+        private Random randomGenerator;
+
         public Form1()
         {
+            randomGenerator = new Random();
             InitializeComponent();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.CreateGraphics().DrawRectangle(new Pen(Brushes.Green, 5), new Rectangle(randomGenerator.Next(0, this.Width), randomGenerator.Next(0, this.Height), 60, 30));
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
