@@ -26,7 +26,7 @@ namespace WindowsFormShapes
 
         private void button3_Click(object sender, EventArgs e)
         {
-
+            this.CreateGraphics().DrawEllipse(new Pen(Brushes.Blue, 3), new Rectangle(randomGenerator.Next(0, this.Width), randomGenerator.Next(0, this.Height), 100, 100));
         }
     }
 }
