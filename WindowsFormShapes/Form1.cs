@@ -8,10 +8,16 @@ namespace WindowsFormShapes
         private Thread triangleThread;
         private Thread circleThread;
 
+        private bool isRectangleClicked;
+        private bool isTriangleClicked;
+        private bool isCircleClicked;
         private bool isRandomColorClicked;
 
         public Form1()
         {
+            this.isRectangleClicked = false;
+            this.isTriangleClicked = false;
+            this.isCircleClicked = false;
             this.isRandomColorClicked = false;
             randomGenerator = new Random();
             InitializeComponent();
@@ -81,13 +87,15 @@ namespace WindowsFormShapes
     
         private void button1_Click(object sender, EventArgs e)
         {
+            this.isRectangleClicked = !this.isRectangleClicked;
+
             rectangleThread = new Thread(rectangleThreadMethod);
             rectangleThread.Start();
         }
 
         private void rectangleThreadMethod()
         {
-            while(true)
+            while(this.isRectangleClicked)
             {
                 Pen pen = new Pen(Brushes.Brown, 5);
                 if (this.isRandomColorClicked)
@@ -102,13 +110,15 @@ namespace WindowsFormShapes
 
         private void button2_Click(object sender, EventArgs e)
         {
+            this.isTriangleClicked = !this.isTriangleClicked;
+
             triangleThread = new Thread(triangleThreadMethod);
             triangleThread.Start();
         }
 
         private void triangleThreadMethod()
         {
-            while (true)
+            while (this.isTriangleClicked)
             {
                 Pen pen = new Pen(Brushes.Red, 5);
                 if (this.isRandomColorClicked)
@@ -127,13 +137,15 @@ namespace WindowsFormShapes
 
         private void button3_Click(object sender, EventArgs e)
         {
+            this.isCircleClicked = !this.isCircleClicked;
+
             circleThread = new Thread(cricleThreadMethod);
             circleThread.Start();
         }
 
         private void cricleThreadMethod()
         {
-            while(true)
+            while(this.isCircleClicked)
             {
                 Pen pen = new Pen(Brushes.Blue, 5);
                 if (this.isRandomColorClicked)
