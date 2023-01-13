@@ -12,7 +12,11 @@ namespace WindowsFormShapes
 
         private void button1_Click(object sender, EventArgs e)
         {
-            this.CreateGraphics().DrawRectangle(new Pen(Brushes.Green, 5), new Rectangle(randomGenerator.Next(0, this.Width), randomGenerator.Next(0, this.Height), 60, 30));
+            while(true)
+            {
+                this.CreateGraphics().DrawRectangle(new Pen(Brushes.Green, 5), new Rectangle(randomGenerator.Next(0, this.Width), randomGenerator.Next(0, this.Height), 60, 30));
+                Thread.Sleep(3000);
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
