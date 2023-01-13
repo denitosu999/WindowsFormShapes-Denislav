@@ -31,16 +31,36 @@ namespace WindowsFormShapes
 
         private void button2_Click(object sender, EventArgs e)
         {
-            this.CreateGraphics().DrawPolygon(new Pen(Brushes.Red, 5), new Point[] { 
-                new Point(randomGenerator.Next(0, this.Width), randomGenerator.Next(0, this.Height)),
-                new Point(randomGenerator.Next(0, this.Width), randomGenerator.Next(0, this.Height)),
-                new Point(randomGenerator.Next(0, this.Width), randomGenerator.Next(0, this.Height)) 
-            });
+            triangleThread = new Thread(triangleThreadMethod);
+            triangleThread.Start();
+        }
+
+        private void triangleThreadMethod()
+        {
+            while (true)
+            {
+                this.CreateGraphics().DrawPolygon(new Pen(Brushes.Red, 5), new Point[] {
+                    new Point(randomGenerator.Next(0, this.Width), randomGenerator.Next(0, this.Height)),
+                    new Point(randomGenerator.Next(0, this.Width), randomGenerator.Next(0, this.Height)),
+                    new Point(randomGenerator.Next(0, this.Width), randomGenerator.Next(0, this.Height))
+                });
+                Thread.Sleep(2000);
+            }
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            this.CreateGraphics().DrawEllipse(new Pen(Brushes.Blue, 3), new Rectangle(randomGenerator.Next(0, this.Width), randomGenerator.Next(0, this.Height), 100, 100));
+            circleThread = new Thread(cricleThreadMethod);
+            circleThread.Start();
+        }
+
+        private void cricleThreadMethod()
+        {
+            while(true)
+            {
+                this.CreateGraphics().DrawEllipse(new Pen(Brushes.Blue, 3), new Rectangle(randomGenerator.Next(0, this.Width), randomGenerator.Next(0, this.Height), 100, 100));
+                Thread.Sleep(4000);
+            }
         }
     }
 }
